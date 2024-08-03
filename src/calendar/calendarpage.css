@@ -1,0 +1,57 @@
+/* src/calendar/calendarpage.css */
+.calendar-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    margin-top: 100px;
+    margin-left: 300px;
+}
+
+.react-calendar__tile {
+    color: #333;
+}
+
+.react-calendar__tile:nth-of-type(7n) {
+    color: #000;
+}
+
+.react-calendar__tile:nth-of-type(7n-0) {
+    color: #ff0000;
+}
+
+.calendar-container {
+    margin-right: 50px;
+}
+
+.react-calendar {
+    border: 2px solid #333;
+}
+
+.timer-records {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.timer-record-item {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.record-id {
+    font-size: 24px;
+    font-weight: bold;
+    color: #19BE81;
+    margin-right: 20px;
+}
+
+.record-time {
+    font-size: 18px;
+}

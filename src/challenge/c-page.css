@@ -1,0 +1,69 @@
+/* src/challenge/c-page.css */
+.date-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 170px;
+    margin-left: 100px;
+    margin-top: -50px;
+}
+
+.date-nav {
+    background-color: #19BE81;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.date-nav:hover {
+    background-color: #017e5a;
+}
+
+.date-display {
+    font-size: 24px;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+.challenges {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 150px;
+    margin-top: -100px;
+}
+
+.challenge-item {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.challenge-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.challenge-text {
+    flex: 1;
+    gap: 100px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: gray;
+    gap: 100px;
+}
+
+input[type="checkbox"].checked {
+    accent-color: green;
+}
