@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../Layout";
 import "./mainpage.css";
+import axios from "axios";
 
 function MainPage() {
   return (
@@ -15,7 +16,9 @@ function MainPage() {
 
 function MainContent() {
   const [time, setTime] = useState(0);
+  const [pauseTime, setPauseTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
+  const [isPause, setIsPause] = useState(false);
 
   useEffect(() => {
     let interval = null;
@@ -29,17 +32,55 @@ function MainContent() {
     return () => clearInterval(interval);
   }, [isActive, time]);
 
+  useEffect(() => {
+    let interval = null;
+    if(isPause && !isActive) {
+      interval = setInterval(() => {
+        setPauseTime((prevTime) => prevTime + 1);
+      }, 1000);
+    } else if(!isPause && pauseTime !== 0 && isActive) {
+      clearInterval(interval);
+    }
+  }, [isPause, pauseTime]);
+
   const handleStart = () => {
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/timerecords`, {
+        type: "start"
+      })
+      .then(res => {
+        console.log("저장되었습니다.");
+      })
+      .catch(err => {
+        console.log(err.toString());
+      });
+
     setIsActive(true);
+    setIsPause(false);
   };
 
   const handlePause = () => {
     setIsActive(false);
+    setIsPause(true);
   };
 
   const handleReset = () => {
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/timerecords`, {
+        type: "end",
+        breakTimes: pauseTime
+      })
+      .then(res => {
+        console.log("저장되었습니다.");
+      })
+      .catch(err => {
+        console.log(err.toString());
+      });
+
     setIsActive(false);
+    setIsPause(false);
     setTime(0);
+    setPauseTime(0);
   };
 
   const formatTime = (seconds) => {

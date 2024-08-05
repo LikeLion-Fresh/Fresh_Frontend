@@ -14,6 +14,8 @@ function Sidebar() {
       navigate("/calendar");
     } else if (section === "Membership") {
       navigate("/membership");
+    } else if (section === "Statistics") {
+      navigate("/statistics");
     } else {
       alert(`${section} 버튼이 클릭되었습니다.`);
     }

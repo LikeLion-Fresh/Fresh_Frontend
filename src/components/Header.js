@@ -4,10 +4,13 @@ import React from "react";
 function Header() {
   return (
     <div className="header">
-      <div className="logo">Fresh Time</div>
-      <div className="search-bar">
-        <input type="text" placeholder="Search..." />
+      <div className="logo">
+          <img src="/Freshtime.png" alt="로고"/>
       </div>
+        <div className="text">
+            <div className="fresh">Fresh</div>
+            <div className="time">Time</div>
+        </div>
     </div>
   );
 }

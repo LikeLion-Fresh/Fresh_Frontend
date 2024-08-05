@@ -5,15 +5,17 @@ import MainPage from "./main/mainpage";
 import CalendarPage from "./calendar/calendarpage";
 import MembershipPage from "./membership/m-page";
 import ChallengePage from "./challenge/c-page";
+import Statistics from "./statistics/Statistics";
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/membership" element={<MembershipPage />} />
-        <Route path="/challenge" element={<ChallengePage />} />
+        <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/membership" element={<MembershipPage />} />
+            <Route path="/challenge" element={<ChallengePage />} />
+            <Route path="/statistics" element={<Statistics />} />
       </Routes>
     </Router>
   );
