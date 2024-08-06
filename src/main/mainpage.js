@@ -43,6 +43,20 @@ function MainContent() {
     }
   }, [isPause, pauseTime]);
 
+  useEffect(() => {
+    checkAndPlayAudio(time);
+  }, [time]);
+
+  const checkAndPlayAudio = (value) => {
+    if (value % 1800 === 0 && value > 0) {
+      // 오디오 파일을 생성하고 재생합니다.
+      const audio = new Audio('/sound_a.mp3');
+      audio.play().catch(err => {
+        console.log(err);
+      });
+    }
+  };
+
   const handleStart = () => {
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/timerecords`, {
@@ -90,6 +104,7 @@ function MainContent() {
     const getHours = `0${Math.floor(seconds / 3600)}`.slice(-2);
     return `${getHours}:${getMinutes}:${getSeconds}`;
   };
+  
 
   return (
     <div className="main-content">

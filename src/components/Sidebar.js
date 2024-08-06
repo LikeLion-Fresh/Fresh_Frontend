@@ -9,7 +9,7 @@ function Sidebar() {
     if (section === "Challenge") {
       navigate("/challenge");
     } else if (section === "Main") {
-      navigate("/");
+      navigate("/main");
     } else if (section === "Calendar") {
       navigate("/calendar");
     } else if (section === "Membership") {
